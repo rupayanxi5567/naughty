@@ -1,0 +1,1043 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Naughty Indeea</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/remixicon@3.5.0/fonts/remixicon.css"
+      rel="stylesheet"
+    />
+    <style>
+      * {
+        margin: 0;
+
+        padding: 0;
+
+        color: white;
+
+        box-sizing: border-box;
+
+        font-family: Arial, Helvetica, sans-serif;
+      }
+
+      *::selection {
+        background-color: white;
+
+        color: #95c11e;
+      }
+
+      body::-webkit-scrollbar {
+        display: block;
+
+        width: 8px;
+
+        background-color: #95c11e;
+      }
+
+      body::-webkit-scrollbar-thumb {
+        background-color: white;
+        border-radius: 20px;
+      }
+
+      html,
+      body {
+        height: 100%;
+
+        width: 100%;
+      }
+
+      #nav {
+        height: 145px;
+
+        width: 100%;
+
+        /* background-color: red; */
+
+        position: absolute;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        padding: 0 150px;
+
+        gap: 50px;
+
+        z-index: 99;
+      }
+
+      #nav img {
+        height: 75px;
+      }
+
+      #nav h4 {
+        font-weight: 500;
+      }
+
+      #cursor {
+        height: 20px;
+
+        width: 20px;
+
+        background-color: #95c11e;
+
+        border-radius: 50%;
+
+        position: fixed;
+
+        z-index: 99;
+      }
+
+      #cursorBlur {
+        height: 400px;
+
+        width: 400px;
+
+        background-color: #96c11e3c;
+
+        border-radius: 50%;
+
+        position: fixed;
+
+        z-index: 9;
+
+        filter: blur(50px);
+      }
+
+      video {
+        height: 100%;
+
+        width: 100%;
+
+        z-index: -1;
+
+        object-fit: cover;
+
+        position: fixed;
+      }
+
+      #mains {
+        position: relative;
+
+        background-color: rgba(0, 0, 0, 0.37);
+      }
+
+      #page1 {
+        text-align: center;
+
+        height: 100vh;
+
+        width: 100%;
+
+        position: relative;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        flex-direction: column;
+
+        z-index: 10;
+      }
+
+      #page1 h1 {
+        font-size: 120px;
+
+        font-weight: 900;
+
+        position: relative;
+      }
+
+      #page1 h1::before {
+        content: "LICK.SUCK.PUSH";
+
+        position: absolute;
+
+        color: black;
+
+        top: -6px;
+
+        left: -6px;
+
+        -webkit-text-stroke: 1px #95c11e;
+
+        z-index: -1;
+      }
+
+      #page1 h2 {
+        font-size: 33px;
+
+        font-weight: 800;
+
+        margin-top: 10px;
+
+        margin-bottom: 20px;
+
+        z-index: 10;
+      }
+
+      #page1 p {
+        font-size: 21px;
+
+        font-weight: 500;
+
+        width: 40%;
+      }
+
+      #page1 #arrow {
+        height: 200px;
+
+        width: 200px;
+
+        background-color: transparent;
+
+        border: 2px solid #95c11e;
+
+        position: absolute;
+
+        display: flex;
+
+        left: -2%;
+
+        bottom: 0;
+
+        align-items: center;
+
+        justify-content: center;
+
+        border-radius: 50%;
+
+        transition: all ease 0.5s;
+      }
+
+      #page1 #arrow:hover {
+        scale: 0.5;
+
+        background-color: #95c11e;
+      }
+
+      #page1 #arrow i {
+        font-size: 50px;
+
+        font-weight: 900;
+      }
+
+      #page2 {
+        min-height: 100vh;
+
+        width: 100%;
+      }
+
+      #scroller {
+        /* background-color: red; */
+
+        white-space: nowrap;
+
+        overflow-y: hidden;
+
+        overflow-x: auto;
+
+        position: relative;
+
+        z-index: 10;
+      }
+
+      #scroller::-webkit-scrollbar {
+        display: none;
+      }
+
+      #scroller h4 {
+        display: inline-block;
+
+        font-size: 125px;
+
+        font-weight: 900;
+
+        font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+
+        margin-right: 10px;
+
+        -webkit-text-stroke: 2px #95c11e;
+
+        color: transparent;
+
+        transition: all linear 0.5s;
+      }
+
+      #scroller h4:hover {
+        color: #95c11e;
+      }
+
+      #scroller1In {
+        display: inline-block;
+
+        white-space: nowrap;
+
+        animation-name: scroll;
+
+        animation-duration: 35s;
+
+        animation-timing-function: linear;
+
+        animation-iteration-count: infinite;
+      }
+
+      @keyframes scroll {
+        from {
+          transform: translateX(0);
+        }
+
+        to {
+          transform: translateX(-100%);
+        }
+      }
+
+      #about {
+        height: 40vh;
+
+        width: 100%;
+
+        /* background-color: red; */
+
+        display: flex;
+
+        position: relative;
+
+        z-index: 10;
+
+        padding: 0 50px;
+
+        align-items: center;
+
+        justify-content: space-around;
+      }
+
+      #about img {
+        height: 220px;
+
+        width: 220px;
+
+        border-radius: 20px;
+
+        object-fit: cover;
+      }
+
+      #aboutIn {
+        width: 40%;
+
+        text-align: center;
+      }
+
+      #aboutIn h3 {
+        font-size: 55px;
+
+        font-weight: 800;
+
+        margin-bottom: 40px;
+      }
+
+      #aboutIn p {
+        font-size: 20px;
+
+        line-height: 26px;
+      }
+
+      #cardsContainer {
+        /* background-color: red; */
+
+        height: 60vh;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 50px;
+
+        position: relative;
+
+        z-index: 10;
+      }
+
+      .card {
+        height: 80%;
+
+        width: 24%;
+
+        /* background-color: blue; */
+
+        border-radius: 20px;
+
+        background-size: cover;
+
+        background-position: center;
+
+        overflow: hidden;
+
+        transition: all ease 0.6s;
+      }
+
+      #card1 {
+        background-image: url("images/3some.jpeg");
+      }
+
+      #card2 {
+        background-image: url("images/hard.jpeg");
+      }
+
+      #card3 {
+        background-image: url("images/bj.jpg");
+      }
+
+      .overlay {
+        height: 100%;
+
+        width: 100%;
+
+        background-color: #95c11e;
+
+        padding: 30px;
+        padding-top: 160px;
+
+        opacity: 0;
+
+        transition: all ease 0.6s;
+      }
+
+      .card:hover .overlay {
+        opacity: 1;
+      }
+
+      .card:hover {
+        transform: rotate3d(-1, 1, 0, 20deg);
+      }
+
+      .overlay h4 {
+        color: black;
+
+        font-size: 40px;
+
+        text-transform: uppercase;
+
+        white-space: nowrap;
+
+        margin-bottom: 20px;
+
+        font-weight: 800;
+      }
+      .overlay p {
+        color: black;
+      }
+
+      #greenDiv {
+        height: 30vh;
+
+        display: flex;
+
+        justify-content: space-between;
+
+        align-items: center;
+
+        /* background-color: red; */
+
+        background: linear-gradient(to left bottom, #119f3a, #ace022);
+      }
+
+      #greenDiv h4 {
+        width: 45%;
+
+        line-height: 50px;
+
+        color: black;
+
+        font-weight: 800;
+
+        text-align: center;
+
+        font-size: 28px;
+
+        text-transform: uppercase;
+      }
+
+      #greenDiv img {
+        height: 100%;
+
+        object-fit: cover;
+
+        width: 14%;
+      }
+
+      #page3 {
+        height: 100vh;
+
+        width: 100%;
+
+        background-color: black;
+
+        display: flex;
+
+        align-items: center;
+
+        position: relative;
+
+        justify-content: center;
+      }
+
+      #page3 > p {
+        font-size: 35px;
+
+        font-weight: 700;
+
+        width: 60%;
+
+        line-height: 45px;
+
+        text-align: center;
+      }
+
+      #page3 img {
+        position: absolute;
+
+        height: 60px;
+      }
+
+      #page3 #colon1 {
+        left: 15%;
+
+        top: 25%;
+      }
+
+      #page3 #colon2 {
+        left: 81%;
+
+        top: 65%;
+      }
+
+      #page4 {
+        height: 30vh;
+
+        width: 100%;
+
+        /* background-color: red; */
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        gap: 70px;
+
+        position: relative;
+      }
+
+      #page4 h1 {
+        font-size: 60px;
+
+        position: absolute;
+
+        top: -15%;
+
+        font-weight: 900;
+
+        color: black;
+
+        -webkit-text-stroke: 2px white;
+      }
+
+      .elements {
+        height: 70%;
+
+        width: 26%;
+
+        overflow: hidden;
+
+        border-radius: 20px;
+
+        position: relative;
+      }
+
+      .elements img {
+        height: 100%;
+
+        width: 100%;
+
+        object-fit: cover;
+
+        scale: 1.5;
+      }
+
+      .elements h2 {
+        height: 100%;
+
+        color: black;
+
+        font-weight: 800;
+
+        width: 100%;
+
+        background-color: #95c11e;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: center;
+
+        transition: all ease 0.5s;
+
+        font-size: 40px;
+
+        position: absolute;
+
+        z-index: 10;
+      }
+
+      .elements:hover h2 {
+        color: white;
+
+        background-color: transparent;
+      }
+
+      .elements:hover img {
+        scale: 1;
+      }
+
+      #footer {
+        height: 40vh;
+
+        width: 100%;
+
+        background: linear-gradient(to left bottom, #119f3a 0%, #ace022 80%);
+        /* background-color: red; */
+
+        position: relative;
+
+        display: flex;
+
+        align-items: center;
+
+        justify-content: flex-start;
+
+        gap: 150px;
+
+        padding: 0 100px;
+      }
+
+      #footer > img {
+        position: absolute;
+
+        left: 0;
+
+        height: 100%;
+
+        z-index: 0;
+      }
+
+      #f1 img {
+        height: 100px;
+      }
+
+      #f1,
+      #f2,
+      #f3,
+      #f4 {
+        width: fit-content;
+
+        position: relative;
+
+        z-index: 99;
+      }
+
+      #f2 h3 {
+        font-size: 30px;
+
+        white-space: nowrap;
+
+        text-transform: uppercase;
+
+        color: black;
+
+        font-weight: 900;
+
+        margin-bottom: 8px;
+      }
+
+      #f3 h3 {
+        font-size: 20px;
+
+        white-space: nowrap;
+
+        text-transform: uppercase;
+
+        color: black;
+
+        font-weight: 800;
+
+        margin-bottom: 8px;
+      }
+
+      #f4 h4 {
+        font-size: 18px;
+
+        white-space: nowrap;
+
+        text-transform: uppercase;
+
+        color: black;
+
+        font-weight: 600;
+
+        line-height: 20px;
+
+        margin-bottom: 8px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="nav">
+      <img src="images/logo.png" alt="" />
+
+      <h4>Blow Job</h4>
+
+      <h4>Pussy Lick</h4>
+
+      <h4>Boobs Suck</h4>
+
+      <h4>HardCore</h4>
+
+      <h4>Threesome</h4>
+    </div>
+
+    <div id="cursor"></div>
+    <div id="cursorBlur"></div>
+
+    <video autoplay loop muted src="Videos/jane.mp4"></video>
+    <!-- <video autoplay loop muted src="blob:https://xhamster.desi/5073f625-8305-41b3-9810-7778bfdca7ee"></video> -->
+
+    <div id="mains">
+      <div id="page1">
+        <h1>LICK.SUCK.PUSH</h1>
+
+        <h2>WELCOME TO NAUGHTY INDEEA</h2>
+
+        <p>
+          The best porn movies daily at Naughty Indeea! Experience the most
+          seductive porn stars in stunning virtual reality, 4K and HD porn
+          videos!
+        </p>
+
+        <div id="arrow">
+          <i class="ri-arrow-down-line"></i>
+        </div>
+      </div>
+
+      <div id="page2">
+        <div id="scroller">
+          <div id="scroller1In">
+            <h4>Blow Job</h4>
+
+            <h4>Pussy Lick</h4>
+
+            <h4>Boobs Suck</h4>
+
+            <h4>HardCore</h4>
+
+            <h4>Threesome</h4>
+          </div>
+
+          <div id="scroller1In"></div>
+
+          <h4>TOPTRACER RANGE</h4>
+
+          <h4>GOLF LESSONS</h4>
+
+          <h4>ADVENTURE GOLF</h4>
+
+          <h4>COFEE SHOP</h4>
+
+          <h4>LEAGUES</h4>
+        </div>
+
+        <div id="about">
+          <img src="images/pl.webp" alt="" />
+          <div id="aboutIn">
+            <h3>About Us</h3>
+            <p>
+              The best porn movies daily at Naughty America! Experience the most
+              seductive porn stars in stunning virtual reality, 4K and HD porn
+              videos!
+            </p>
+          </div>
+          <img src="images/boobs.webp" alt="" />
+        </div>
+
+        <div id="cardsContainer">
+          <div id="card1" class="card">
+            <div class="overlay">
+              <h4>ThreeSome</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Maxime, vel.
+              </p>
+            </div>
+          </div>
+          <div id="card2" class="card">
+            <div class="overlay">
+              <h4>Hardcore</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Maxime, vel.
+              </p>
+            </div>
+          </div>
+          <div id="card3" class="card">
+            <div class="overlay">
+              <h4>Blow Job</h4>
+              <p>
+                Lorem ipsum dolor sit amet consectetur, adipisicing elit.
+                Maxime, vel.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div id="greenDiv">
+          <img
+            src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
+            alt=""
+          />
+
+          <h4>
+            SIGN UP FOR MORE SUCH SPECIAL OFFERS AND FREE WEEKENDS VIDEO CALLS
+            FOR MORE THAN 3 HOURS
+          </h4>
+
+          <img
+            src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-side.svg"
+            alt=""
+          />
+        </div>
+      </div>
+
+      <div id="page3">
+        <p>
+          My reaction to porno films is as follows: After the first ten minutes,
+          I want to go home and screw. After the first twenty minutes, I never
+          want to screw again as long as I live.
+        </p>
+
+        <img
+          id="colon1"
+          src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-left.svg"
+          alt=""
+        />
+
+        <img
+          id="colon2"
+          src="https:/eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/quote-right.svg"
+        />
+      </div>
+
+      <div id="page4">
+        <h1>WHAT ARE YOU WAITING FOR?</h1>
+
+        <div class="elements">
+          <h2>Pussy Lick</h2>
+          <img src="images/pl1.jpeg" alt="" />
+        </div>
+
+        <div class="elements">
+          <h2>Blow Job</h2>
+          <img src="images/bj1.jpg" alt="" />
+        </div>
+
+        <div class="elements">
+          <h2>Threesome</h2>
+          <img src="images/3s.webp" alt="" />
+        </div>
+      </div>
+
+      <div id="footer">
+        <img
+          src="https://eiwgew27fhz.exactdn.com/wp-content/themes/puttosaurus/img/dots-footer.svg"
+          alt=""
+        />
+
+        <div id="f1">
+          <img src="images/logo.png" alt="" />
+        </div>
+
+        <div id="f2">
+          <h3>Boobs Suck</h3>
+          <h3>Anal Sex</h3>
+          <h3>Pussy Lick</h3>
+        </div>
+
+        <div id="f3">
+          <h3>Blow Job</h3>
+          <h3>Threesome</h3>
+          <h3>Hardcore</h3>
+        </div>
+
+        <div id="f4">
+          <h4>
+            A20, Siliguri <br />
+            West Bengal <br />
+            India
+          </h4>
+        </div>
+      </div>
+    </div>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"
+      integrity="sha512-16esztaSRplJROstbIIdwX3N97V1+pZvV33ABoG1H2OyTttBxEGkTsoIVsiP1iaTtM8b3+hu2kB6pQ4Clr5yug=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"
+      integrity="sha512-Ic9xkERjyZ1xgJ5svx3y0u3xrvfT/uPkV99LBwe68xjy/mGtO+4eURHZBW2xW4SZbFrF1Tf090XqB+EVgXnVjw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    ></script>
+
+    <script>
+      let cursor = document.getElementById("cursor");
+
+      let cursorBlur = document.getElementById("cursorBlur");
+
+      let cursorMove = document.addEventListener("mousemove", function (dets) {
+        cursor.style.left = dets.x + "px";
+
+        cursor.style.top = dets.y + "px";
+
+        cursorBlur.style.left = dets.x - 200 + "px";
+
+        cursorBlur.style.top = dets.y - 200 + "px";
+      });
+
+      gsap.to("#nav", {
+        backgroundColor: "black",
+        duration: 0.5,
+        height: "110px",
+        scrollTrigger: {
+          trigger: "#nav",
+          scroller: "body",
+          markers: true,
+          start: "top -10%",
+          end: "top -11%",
+          scrub: 1,
+        },
+      });
+
+      gsap.to("#mains", {
+        backgroundColor: "black",
+        scrollTrigger: {
+          trigger: "#main",
+          scroller: "body",
+          markers: true,
+          start: "top -25%",
+          end: "top -70%",
+          scrub: 2,
+        },
+      });
+
+      let h4All = document.querySelectorAll("#nav h4");
+
+      h4All.forEach(function (elems) {
+        elems.addEventListener("mouseenter", function () {
+          cursor.style.scale = 3;
+
+          cursor.style.border = "1px solid white";
+
+          cursor.style.backgroundColor = "transparent";
+        });
+
+        elems.addEventListener("mouseleave", function () {
+          cursor.style.scale = 1;
+
+          cursor.style.border = "0 px solid #95c11e";
+
+          cursor.style.backgroundColor = "95c11e";
+        });
+      });
+
+      gsap.from("#about img, #aboutIn", {
+        y: 90,
+        opacity: 0,
+        duration: 1,
+        stragger: 0.5,
+        scrollTrigger: {
+          trigger: "#about",
+          scroller: "body",
+          // markers: true,
+          start: "top 70%",
+          end: "top 65%",
+          scrub: 1,
+        },
+      });
+
+      gsap.from(".card", {
+        scale: 0.8,
+        opacity: 0,
+        duration: 1,
+        stragger: 0.5,
+        scrollTrigger: {
+          trigger: ".card",
+          scroller: "body",
+          // markers: true,
+          start: "top 70%",
+          end: "top 65%",
+          scrub: 1,
+        },
+      });
+
+      gsap.from("#colon1", {
+        y: -70,
+        x: -70,
+        scrollTrigger: {
+          trigger: "#colon1",
+          scroller: "body",
+          // markers: true,
+          start: "top 55%",
+          end: "top 45%",
+          scrub: 4,
+        },
+      });
+
+      gsap.from("#colon2", {
+        y: -70,
+        x: -70,
+        scrollTrigger: {
+          trigger: "#colon1",
+          scroller: "body",
+          // markers: true,
+          start: "top 55%",
+          end: "top 45%",
+          scrub: 4,
+        },
+      });
+
+      gsap.from("#page4 h1", {
+        y: 50,
+        scrollTrigger: {
+          trigger: "#page4 h1",
+          scroller: "body",
+          // markers: true,
+          start: "top 75%",
+          end: "top 70%",
+          scrub: 3,
+        },
+      });
+    </script>
+  </body>
+</html>
